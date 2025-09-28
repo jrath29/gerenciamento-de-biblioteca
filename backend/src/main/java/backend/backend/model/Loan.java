@@ -1,6 +1,5 @@
 package backend.backend.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,20 +10,17 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Book {
+public class Loan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(nullable = false)
-    private String name;
+    public Long id;
 
     @ManyToOne
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
-    private Author author;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    public User user;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Category category;
+    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    public Book book;
 }

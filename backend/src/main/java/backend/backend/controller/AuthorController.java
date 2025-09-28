@@ -43,7 +43,6 @@ public class AuthorController {
             .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-
     @PutMapping("/update/{id}")
     public ResponseEntity<Author> updateAuthor(@PathVariable Long id, @RequestBody Author authorDetails){
         Optional<Author> selectedAuthor = authorRepository.findById(id);
